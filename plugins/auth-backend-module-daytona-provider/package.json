@@ -1,6 +1,5 @@
 {
-  "name": "@adityasinghal26/backstage-plugin-auth-backend-module-daytona-provider",
-  "description": "The daytona-provider backend module for the auth plugin.",
+  "name": "@daytona-io/backstage-plugin-auth-backend-module-daytona-provider",
   "version": "0.1.2",
   "main": "src/index.ts",
   "types": "src/index.ts",
@@ -15,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/adityasinghal26/daytona-backstage-plugins",
+    "url": "https://github.com/daytonaio/backstage-plugins",
     "directory": "plugins/auth-backend-module-daytona-provider"
   },
   "scripts": {

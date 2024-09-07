@@ -1,0 +1,56 @@
+name: Publish Plugins
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@daytona-io'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Check for changes
+        uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            daytona:
+              - 'plugins/daytona/**'
+            daytona-web:
+              - 'plugins/daytona-web/**'
+            auth-backend-module-daytona-provider:
+              - 'plugins/auth-backend-module-daytona-provider/**'
+
+      - if: steps.changes.outputs.daytona == 'true'
+        name: Publish @daytona-io/backstage-plugin-daytona
+        run: |
+          cd plugins/daytona
+          yarn publish --non-interactive --access public
+
+      - if: steps.changes.outputs.auth-backend-module-daytona-provider == 'true'
+        name: Publish @daytona-io/backstage-plugin-auth-backend-module-daytona-provider
+        run: |
+          cd plugins/auth-backend-module-daytona-provider
+          yarn publish --non-interactive --access public
+
+      - if: steps.changes.outputs.daytona-web == 'true'
+        name: Publish @daytona-io/daytona-web
+        run: |
+          cd plugins/daytona-web
+          yarn publish --non-interactive --access public
