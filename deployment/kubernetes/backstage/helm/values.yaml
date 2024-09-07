@@ -1,0 +1,40 @@
+namespace: 'backstage'
+service:
+  apiVersion: 'v1'
+  name: 'backstage'
+  port: '80'
+  targetPort: 'http'
+
+deployment:
+  apiVersion: 'apps/v1'
+  name: 'backstage'
+  replicas: '1'
+
+image:
+  registry: 'localhost:5001'
+  repository: 'backstage'
+  tag: '0.1.0'
+
+container:
+  name: 'backstage'
+  port: '7007'
+
+secrets:
+  backstage: 'backstage-secrets'
+  postgres: 'postgres-secrets'
+  ghToken: 'dummy'
+  azToken: 'dummy'
+  argocdToken: 'argocd.token=token-value'
+  backendUrl: 'https://effective-space-enigma-69979v6xwq524x77-8000.preview.app.github.dev'
+  incluster:
+    token: 'incluster-sa-b64-encoded-token'
+  cluster1:
+    url: 'https://my-k8s-cluster-ip:port'
+    name: 'my-k8s-cluster'
+    token: 'service-account-b64-encoded-token'
+
+postgres:
+  host: 'cG9zdGdyZXMucG9zdGdyZXMuc3ZjLmNsdXN0ZXIubG9jYWw='
+  port: 'NTQzMg=='
+  username: 'YmFja3N0YWdl'
+  password: 'aHVudGVyMg=='

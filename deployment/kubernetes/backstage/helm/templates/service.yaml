@@ -1,0 +1,15 @@
+# kubernetes/backstage-service.yaml
+apiVersion: {{ .Values.service.apiVersion }}
+kind: Service
+metadata:
+  name: {{ .Values.service.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    backstage.io/kubernetes-id: {{ .Values.deployment.name }}
+spec:
+  selector:
+    app: {{ .Values.deployment.name }}
+  ports:
+    - name: http
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}

@@ -1,0 +1,43 @@
+# kubernetes/backstage.yaml
+apiVersion: {{ .Values.deployment.apiVersion }}
+kind: Deployment
+metadata:
+  name: {{ .Values.deployment.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    backstage.io/kubernetes-id: {{ .Values.deployment.name }}
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.deployment.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.deployment.name }}
+        backstage.io/kubernetes-id: {{ .Values.deployment.name }}
+      annotations:
+        checksum/secret: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
+    spec:
+      containers:
+        - name: {{ .Values.container.name }}
+          image: {{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: {{ .Values.container.port }}
+          envFrom:
+            - secretRef:
+                name: {{ .Values.secrets.postgres }}
+            - secretRef:
+                name: {{ .Values.secrets.backstage }}
+# Uncomment if health checks are enabled in your app:
+# https://backstage.io/docs/plugins/observability#health-checks
+        #  readinessProbe:
+        #    httpGet:
+        #      port: 7007
+        #      path: /healthcheck
+        #  livenessProbe:
+        #    httpGet:
+        #      port: 7007
+        #      path: /healthcheck

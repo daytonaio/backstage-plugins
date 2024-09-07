@@ -1,0 +1,30 @@
+namespace: 'backstage'
+service:
+  apiVersion: 'v1'
+  name: 'backstage'
+  port: '80'
+  targetPort: 'http'
+
+deployment:
+  apiVersion: 'apps/v1'
+  name: 'backstage'
+  replicas: '1'
+
+image:
+  registry: 'adityasinghal26'
+  repository: 'backstage'
+  tag: '0.1.0'
+
+container:
+  name: 'backstage'
+  port: '7007'
+
+secrets:
+  backstage: 'backstage-secrets'
+  postgres: 'postgres-secrets'
+  ghToken: 'dummy'
+  backendUrl: 'https://adityasinghal26-devcontainer-name-8000.preview.app.github.dev'
+
+postgres:
+  username: 'YmFja3N0YWdl'
+  password: 'aHVudGVyMg=='

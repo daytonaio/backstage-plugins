@@ -1,0 +1,22 @@
+namespace: 'postgres'
+deployment:
+  name: 'postgres'
+  apiVersion: 'apps/v1'
+  replicas: '1'
+
+service:
+  apiVersion: 'v1'
+  name: 'postgres'
+  port: '5432'
+
+image:
+  repository: 'postgres'
+  tag: '13.2-alpine'
+
+container:
+  name: 'postgres'
+  port: '5432'
+
+postgres:
+  username: 'YmFja3N0YWdl'
+  password: 'aHVudGVyMg=='
