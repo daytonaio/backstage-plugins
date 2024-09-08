@@ -1,4 +1,4 @@
-# @daytona-io/backstage-plugin-auth-backend-module-daytona-provider
+# @daytonaio/backstage-plugin-auth-backend-module-daytona-provider
 
 The daytona-provider backend module for the auth plugin.
 
@@ -46,12 +46,12 @@ The plugin can be installed by running the below command in Backstage root direc
 
 ```sh
 # From your Backstage root directory
-yarn --cwd packages/backend add @daytona-io/backstage-plugin-auth-backend-module-daytona-provider
+yarn --cwd packages/backend add @daytonaio/backstage-plugin-auth-backend-module-daytona-provider
 ```
 
 ```ts
 // In packages/backend/src/index.ts
 
 // Add the Daytona auth plugin provider
-backend.add(import('@daytona-io/backstage-plugin-auth-backend-module-daytona-provider'));
+backend.add(import('@daytonaio/backstage-plugin-auth-backend-module-daytona-provider'));
 ```

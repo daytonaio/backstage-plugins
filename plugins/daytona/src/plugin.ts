@@ -8,15 +8,15 @@ import {
 
 import { rootRouteRef } from './routes';
 import { DaytonaApiClient, daytonaApiRef } from './api';
-import { daytonaAuthApiRef } from '@adityasinghal26/daytona-web';
+import { daytonaAuthApiRef } from '@daytonaio/daytona-web';
 
 export const daytonaPlugin = createPlugin({
   id: 'daytona',
   apis: [
     createApiFactory({
       api: daytonaApiRef,
-      deps: { configApi: configApiRef , daytonaAuthApi: daytonaAuthApiRef },
-      factory: ({ configApi, daytonaAuthApi }) => new DaytonaApiClient({configApi, daytonaAuthApi})
+      deps: { configApi: configApiRef, daytonaAuthApi: daytonaAuthApiRef },
+      factory: ({ configApi, daytonaAuthApi }) => new DaytonaApiClient({ configApi, daytonaAuthApi })
     })
   ],
   routes: {

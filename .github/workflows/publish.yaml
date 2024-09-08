@@ -1,6 +1,7 @@
 name: Publish Plugins
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -20,10 +21,7 @@ jobs:
         with:
           node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
-          scope: '@daytona-io'
-
-      - name: Install dependencies
-        run: yarn install
+          scope: '@daytonaio'
 
       - name: Check for changes
         uses: dorny/paths-filter@v3
@@ -37,20 +35,27 @@ jobs:
             auth-backend-module-daytona-provider:
               - 'plugins/auth-backend-module-daytona-provider/**'
 
-      - if: steps.changes.outputs.daytona == 'true'
-        name: Publish @daytona-io/backstage-plugin-daytona
+      - if: steps.changes.outputs.daytona == 'true' || steps.changes.outputs.daytona-web == 'true' || steps.changes.outputs.auth-backend-module-daytona-provider == 'true'
+        name: Install dependencies
+        run: yarn install
+
+      - if: steps.changes.outputs.daytona == 'true' || github.event_name == 'workflow_dispatch'
+        name: Publish @daytonaio/backstage-plugin-daytona
         run: |
           cd plugins/daytona
           yarn publish --non-interactive --access public
+        continue-on-error: true
 
-      - if: steps.changes.outputs.auth-backend-module-daytona-provider == 'true'
-        name: Publish @daytona-io/backstage-plugin-auth-backend-module-daytona-provider
+      - if: steps.changes.outputs.auth-backend-module-daytona-provider == 'true' || github.event_name == 'workflow_dispatch'
+        name: Publish @daytonaio/backstage-plugin-auth-backend-module-daytona-provider
         run: |
           cd plugins/auth-backend-module-daytona-provider
           yarn publish --non-interactive --access public
+        continue-on-error: true
 
-      - if: steps.changes.outputs.daytona-web == 'true'
-        name: Publish @daytona-io/daytona-web
+      - if: steps.changes.outputs.daytona-web == 'true' || github.event_name == 'workflow_dispatch'
+        name: Publish @daytonaio/daytona-web
         run: |
           cd plugins/daytona-web
           yarn publish --non-interactive --access public
+        continue-on-error: true

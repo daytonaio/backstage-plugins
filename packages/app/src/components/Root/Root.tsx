@@ -26,7 +26,7 @@ import {
 } from '@backstage/core-components';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import { DaytonaIcon } from '@adityasinghal26/backstage-plugin-daytona';
+import { DaytonaIcon } from '@daytonaio/backstage-plugin-daytona';
 
 const useSidebarLogoStyles = makeStyles({
   root: {

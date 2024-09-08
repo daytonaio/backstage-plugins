@@ -20,7 +20,7 @@ The Daytona plugin provides frontend components to connect to the Daytona API ba
 The package shall be installed in the Backstage root directory as below.
 
 ```sh
-yarn --cwd packages/app add @daytona-io/backstage-plugin-daytona
+yarn --cwd packages/app add @daytonaio/backstage-plugin-daytona
 ```
 
 ## Setup
@@ -31,13 +31,13 @@ yarn --cwd packages/app add @daytona-io/backstage-plugin-daytona
 
     ```bash
     # From your Backstage root directory
-    yarn add --cwd packages/app @daytona-io/backstage-plugin-daytona
+    yarn add --cwd packages/app @daytonaio/backstage-plugin-daytona
     ```
 
 2. Add to the app `EntityPage` component. Make sure to add `DaytonaOverviewComponent` right after `EntityAboutCard` under `overviewContent`. This will get the repository URL automatically from the entity location metadata to create the Daytona workspaces. Along with that, it will also list all the workspaces, specific to the repository.
 
     ```tsx
-    import { DaytonaOverviewContent } from '@daytona-io/backstage-plugin-daytona';
+    import { DaytonaOverviewContent } from '@daytonaio/backstage-plugin-daytona';
 
     // Add the DaytonaOverviewContent to show the workspaces for that entity
     const overviewContent = (
@@ -82,7 +82,7 @@ Ensure that the package is installed as mentioned in the Installation section.
     ```tsx
 
     // In packages/app/src/App.tsx
-    import { DaytonaPage } from '@daytona-io/backstage-plugin-daytona';
+    import { DaytonaPage } from '@daytonaio/backstage-plugin-daytona';
 
     // Add the route to the App path routes
     const routes = (
@@ -97,7 +97,7 @@ Ensure that the package is installed as mentioned in the Installation section.
 
     ```tsx
     // In packages/app/src/components/Root/App.tsx
-    import { DaytonaIcon } from '@daytona-io/backstage-plugin-daytona';
+    import { DaytonaIcon } from '@daytonaio/backstage-plugin-daytona';
 
     // Add the menu to the Root menu sidebar
     export const Root = ({ children }: PropsWithChildren<{}>) => (

@@ -1,4 +1,16 @@
-# @adityasinghal26/backstage-plugin-daytona
+# @daytonaio/backstage-plugin-daytona
+
+## 0.2.7
+
+### Patch Changes
+
+- Issue with `@daytonaio` package previous version already published on npmjs
+
+## 0.2.6
+
+### Patch Changes
+
+- Migrated package from `@adityasinghal26` to `@daytonaio` on npmjs
 
 ## 0.2.5
 

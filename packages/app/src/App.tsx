@@ -36,8 +36,8 @@ import { AppRouter, FlatRoutes } from '@backstage/core-app-api';
 import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
-import { daytonaSignInProvider } from '@adityasinghal26/daytona-web';
-import { DaytonaPage } from '@adityasinghal26/backstage-plugin-daytona';
+import { daytonaSignInProvider } from '@daytonaio/daytona-web';
+import { DaytonaPage } from '@daytonaio/backstage-plugin-daytona';
 
 const app = createApp({
   apis,
@@ -59,7 +59,7 @@ const app = createApp({
     });
   },
   components: {
-    SignInPage: props => <SignInPage {...props} auto providers={['guest',daytonaSignInProvider]} />,
+    SignInPage: props => <SignInPage {...props} auto providers={['guest', daytonaSignInProvider]} />,
   },
 });
 

@@ -1,4 +1,4 @@
-# @daytona-io/daytona-web
+# @daytonaio/daytona-web
 
 _This package was created through the Backstage CLI_.
 
@@ -12,7 +12,7 @@ Install the package via Yarn in your Backstage root directory:
 
 ```sh
 # From your Backstage root directory
-yarn --cwd packages/app add @daytona-io/daytona-web
+yarn --cwd packages/app add @daytonaio/daytona-web
 ```
 
 ## Authentication Setup
@@ -23,7 +23,7 @@ Backstage requires ApiFactory to interact with Daytona OAuth library and a sign-
 
     ```ts
     // In packages/app/src/apis.ts
-    import { daytonaApiFactory } from '@daytona-io/daytona-web';
+    import { daytonaApiFactory } from '@daytonaio/daytona-web';
 
     // Add the Daytona ApiFactory to the list of available APIs
     export const apis: AnyApiFactory[] = [
@@ -37,7 +37,7 @@ Backstage requires ApiFactory to interact with Daytona OAuth library and a sign-
     ```tsx
 
     // In packages/app/src/App.tsx
-    import { daytonaSignInProvider } from '@daytona-io/daytona-web';
+    import { daytonaSignInProvider } from '@daytonaio/daytona-web';
 
     // Add the Daytona Sign-In Provider to the available sign-in providers
     const app = createApp({

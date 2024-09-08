@@ -37,6 +37,6 @@ backend.add(
 backend.add(import('@backstage/plugin-search-backend/alpha'));
 backend.add(import('@backstage/plugin-search-backend-module-catalog/alpha'));
 backend.add(import('@backstage/plugin-search-backend-module-techdocs/alpha'));
-backend.add(import('@adityasinghal26/backstage-plugin-auth-backend-module-daytona-provider'));
+backend.add(import('@daytonaio/backstage-plugin-auth-backend-module-daytona-provider'));
 
 backend.start();

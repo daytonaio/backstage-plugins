@@ -1,4 +1,10 @@
-# @adityasinghal26/backstage-plugin-auth-backend-module-daytona-provider
+# @daytonaio/backstage-plugin-auth-backend-module-daytona-provider
+
+## 0.1.3
+
+### Patch Changes
+
+- Migrated package from `@adityasinghal26` to `@daytonaio` on npmjs
 
 ## 0.1.2
 

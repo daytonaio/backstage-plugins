@@ -1,4 +1,10 @@
-# @adityasinghal26/daytona-web
+# @daytonaio/daytona-web
+
+## 0.1.2
+
+### Patch Changes
+
+- Migrated package from `@adityasinghal26` to `@daytonaio` on npmjs
 
 ## 0.1.1
 
