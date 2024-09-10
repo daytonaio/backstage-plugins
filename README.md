@@ -72,7 +72,7 @@ auth:
 In the above configuration, these are the options required to be handled:
 
 - `auth.session.secret`: Must be provided as required in Backstage authentication.
-- Add daytona under the `auth.providers` section, where multiple environments can be configured and then referred in `auth.environment`.
+- Add `daytona` under the `auth.providers` section, where multiple environments can be configured and then referred in `auth.environment`.
 - Add your Daytona Backstage client ID and secret. If you are using the provided `backstage.json`, then your client ID will be backstage in default `realm` and secret can be fetched by logging to `https://id.<your-daytona-domain>`.
 - Sign-in resolvers can be as provided, either `emailMatchingUserEntityProfileEmail` or `emailLocalPartMatchingUserEntityName`.
 
