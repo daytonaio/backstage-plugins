@@ -1,5 +1,11 @@
 # @daytonaio/backstage-plugin-auth-backend-module-daytona-provider
 
+## 0.1.4
+
+### Patch Changes
+
+- Bump patch version for yarn build fix
+
 ## 0.1.3
 
 ### Patch Changes

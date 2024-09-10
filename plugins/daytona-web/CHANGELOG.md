@@ -1,5 +1,11 @@
 # @daytonaio/daytona-web
 
+## 0.1.3
+
+### Patch Changes
+
+- Bump patch version for yarn build fix
+
 ## 0.1.2
 
 ### Patch Changes

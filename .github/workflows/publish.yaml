@@ -37,7 +37,10 @@ jobs:
 
       - if: steps.changes.outputs.daytona == 'true' || steps.changes.outputs.daytona-web == 'true' || steps.changes.outputs.auth-backend-module-daytona-provider == 'true'
         name: Install dependencies
-        run: yarn install
+        run: |
+          yarn
+          yarn tsc
+          yarn build:all
 
       - if: steps.changes.outputs.daytona == 'true' || github.event_name == 'workflow_dispatch'
         name: Publish @daytonaio/backstage-plugin-daytona
