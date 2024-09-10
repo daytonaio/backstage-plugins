@@ -125,6 +125,7 @@ yarn add --cwd packages/app @daytonaio/backstage-plugin-daytona
 2. Add to the app `EntityPage` component. Make sure to add `DaytonaOverviewComponent` right after `EntityAboutCard` under `overviewContent`. This will get the repository URL automatically from the entity location metadata to create the Daytona Workspaces. Along with that, it will also list all the Workspaces, specific to the repository.
 
 ```typescript
+// In packages/app/src/components/catalog/EntityPage.tsx
 import { DaytonaOverviewContent } from '@daytonaio/backstage-plugin-daytona';
 
 // Add the DaytonaOverviewContent to show the workspaces for that entity
@@ -183,7 +184,7 @@ const routes = (
 2. Add the following code snippet to the `Root.tsx` component of your application:
 
 ```typescript
-// In packages/app/src/components/Root/App.tsx
+// In packages/app/src/components/Root/Root.tsx
 import { DaytonaIcon } from '@daytonaio/backstage-plugin-daytona';
 
 // Add the menu to the Root menu sidebar
