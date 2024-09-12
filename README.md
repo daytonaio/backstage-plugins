@@ -33,6 +33,8 @@ This repository is the home of the <a href="https://github.com/daytonaio/daytona
 
 ## Plugins Overview
 
+Daytona Backstage Plugin is a set of integrations that enable integration of Daytona's services with Backstage. These plugins provide authentication, Workspace management, and integration capabilities, enabling Backstage users to authenticate via Daytona Keycloak and interact with Daytona Workspaces directly from the Backstage.
+
 To integrate Daytona plugins into your existing Backstage instance, install the following plugins:
 
 1. [@daytonaio/backstage-plugin-auth-backend-module-daytona-provider](https://www.npmjs.com/package/@daytonaio/backstage-plugin-auth-backend-module-daytona-provider)
@@ -48,7 +50,7 @@ The package provides Backstage module to implement authentication via `auth` plu
 
 #### Configuration
 
-The Daytona module configuration will be under auth in app-config.yaml:
+To configure the Daytona module, add the following configuration under the `auth` section in your `app-config.yaml` file:
 
 ```yaml
 auth:
@@ -69,16 +71,16 @@ auth:
             - resolver: emailLocalPartMatchingUserEntityName
 ```
 
-In the above configuration, these are the options required to be handled:
+In the configuration above, the following options need to be set:
 
 - `auth.session.secret`: Must be provided as required in Backstage authentication.
-- Add `daytona` under the `auth.providers` section, where multiple environments can be configured and then referred in `auth.environment`.
-- Add your Daytona Backstage client ID and secret. If you are using the provided `backstage.json`, then your client ID will be backstage in default `realm` and secret can be fetched by logging to `https://id.<your-daytona-domain>`.
-- Sign-in resolvers can be as provided, either `emailMatchingUserEntityProfileEmail` or `emailLocalPartMatchingUserEntityName`.
+- Add `daytona` under the `auth.providers` section, where you can configure multiple environments and reference them using `auth.environment`.
+- Specify your Daytona Backstage client ID and secret. If you are using the provided `backstage.json`, the `client ID` will be set to `backstage` in the `default` realm. The client secret can be retrieved by logging in to `https://id.<your-daytona-domain>`.
+- Choose between the two sign-in resolvers: `emailMatchingUserEntityProfileEmail` or `emailLocalPartMatchingUserEntityName`.
 
 #### Installation
 
-The plugin can be installed by running the below command in Backstage root directory and later, adding the following in your Backstage backend.
+To install the plugin, run the following command from the root directory of your Backstage project. After installation, add the necessary configuration to your Backstage backend as described below.
 
 ```sh
 # From your Backstage root directory
@@ -87,16 +89,19 @@ yarn --cwd packages/backend add @daytonaio/backstage-plugin-auth-backend-module-
 
 #### Setup
 
+After installing the plugin, configure your Backstage backend to include the Daytona authentication provider. This is done by adding the Daytona `auth` plugin to the backend's code, which will enable authentication through Daytona Keycloak.
+
+Update the `packages/backend/src/index.ts` file as shown below:
+
 ```typescript
 // In packages/backend/src/index.ts
-
 // Add the Daytona auth plugin provider
 backend.add(import('@daytonaio/backstage-plugin-auth-backend-module-daytona-provider'));
 ```
 
 ### Daytona Backstage Plugin
 
-The Daytona plugin provides frontend components to connect to the Daytona API backend and view the workspaces for the authenticated user. You can create new Daytona workspaces directly from Backstage.
+The Daytona plugin provides frontend components to connect to the Daytona API backend and view the Workspaces for the authenticated user. You can create new Daytona Workspaces directly from Backstage.
 
 #### Features
 
@@ -107,7 +112,7 @@ The Daytona plugin provides frontend components to connect to the Daytona API ba
 
 #### Installation
 
-The package shall be installed in the Backstage root directory as below.
+The package requires to be installed within the Backstage root directory:
 
 ```sh
 yarn --cwd packages/app add @daytonaio/backstage-plugin-daytona
@@ -122,7 +127,7 @@ yarn --cwd packages/app add @daytonaio/backstage-plugin-daytona
 yarn add --cwd packages/app @daytonaio/backstage-plugin-daytona
 ```
 
-2. Add to the app `EntityPage` component. Make sure to add `DaytonaOverviewComponent` right after `EntityAboutCard` under `overviewContent`. This will get the repository URL automatically from the entity location metadata to create the Daytona Workspaces. Along with that, it will also list all the Workspaces, specific to the repository.
+2. Update the app's **`EntityPage`** component by adding the **`DaytonaOverviewComponent`** immediately after the **`EntityAboutCard`** within the **`overviewContent`**. This allows the plugin to automatically retrieve the repository URL from the entity's location metadata to create Daytona Workspaces. Additionally, it will display a list of all workspaces associated with the specific repository.
 
 ```typescript
 // In packages/app/src/components/catalog/EntityPage.tsx
@@ -142,7 +147,7 @@ const overviewContent = (
 );
 ```
 
-3. Annotate your component with a valid Git repository if you wish to override the automatically configured repository URL for creating Daytona Workspaces.
+3. To manually specify a different Git repository URL for creating Daytona Workspaces, you can override the automatically detected repository URL by annotating your component with a valid Git repository.
 
 The annotation key is `daytona.io/repo-url`.
 
@@ -224,7 +229,7 @@ nginx.ingress.kubernetes.io/enable-cors: "true"
 
 #### Setup Backstage Auth with Keycloak
 
-Backstage shall be registered as a Keycloak client in the default realm. Once the client is created, client ID and secret can be configured in the Backstage instance.
+Backstage requires to be registered as a Keycloak client in the `default` realm. Once the client is created, `client ID` and `secret` can be configured in the Backstage instance.
 
 1. Create Keycloak client in the `default` realm using `backstage.json` file.
 2. Register the newly created client for authentication in backstage.
@@ -261,7 +266,7 @@ yarn --cwd packages/app add @daytonaio/daytona-web
 
 #### Authentication Setup
 
-Backstage requires ApiFactory to interact with Daytona OAuth library and a sign-in provider. Follow the below steps:
+To enable authentication, Backstage requires an `ApiFactory` to interact with the Daytona OAuth library, along with a sign-in provider.
 
 1. In Backstage folder `packages/app/src`, add the below snippet in `apis.ts` file.
 
