@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useApi } from "@backstage/core-plugin-api";
 import { Box, Button, Card, CardContent, CardHeader, Divider, ListItemText, Typography } from "@material-ui/core";
 import DaytonaIcon from "../../assets/DaytonaIcon";
-import { daytonaAuthApiRef } from "@adityasinghal26/daytona-web";
+import { daytonaAuthApiRef } from "@daytonaio/daytona-web";
 import { isError } from '@backstage/errors';
 
 export const AuthCardComponent = () => {
