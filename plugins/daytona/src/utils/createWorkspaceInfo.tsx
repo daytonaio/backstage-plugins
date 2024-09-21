@@ -53,6 +53,7 @@ export const getWorkspaceOpenButton = (props: {
     }
 
     return (
+      <div>
         <Tooltip placement="top" arrow title="Open">
           <Button
             variant="outlined"
@@ -63,6 +64,7 @@ export const getWorkspaceOpenButton = (props: {
             Open
           </Button>
         </Tooltip>
+      </div>
     );
 }
 
