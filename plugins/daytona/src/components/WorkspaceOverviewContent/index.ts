@@ -1,1 +1,1 @@
-export * from './WorkspaceOverviewContent';
+export * from './WorkspaceOverviewCard';
