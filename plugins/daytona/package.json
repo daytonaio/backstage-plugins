@@ -28,7 +28,6 @@
     "postpack": "backstage-cli package postpack"
   },
   "dependencies": {
-    "@daytonaio/daytona-web": "link:../daytona-web",
     "@backstage/catalog-model": "^1.5.0",
     "@backstage/core-components": "^0.14.7",
     "@backstage/core-plugin-api": "^1.9.2",
