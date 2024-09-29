@@ -25,7 +25,7 @@ const columns: TableColumn[] = [
         title: 'Open',
         field: 'Open',
         width: 'auto',
-        cellStyle: { whiteSpace: 'nowrap' },
+        cellStyle: { whiteSpace: 'nowrap', textAlign: 'end', paddingRight: '20px' },
         render: (row: Partial<CustomWorkspace>) => getWorkspaceOpenButton({
             name: row.workspace?.id,
             domain: row.domain,

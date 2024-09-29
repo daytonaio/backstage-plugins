@@ -20,7 +20,7 @@ export const createWorkspaceInfo = (props: {
     status?: State;
 }) => {
   const { name, branch, ahead, behind, status } = props;
-  const aheadBehind = getGitStatus({ahead, behind});
+  const branchDiff = getGitStatus({branch, ahead, behind});
   const statusIndicator = getWorkspaceState({status});
   
   return (
@@ -28,11 +28,10 @@ export const createWorkspaceInfo = (props: {
       {/* <div style={{padding: '1%', fontSize: '0.9vw',}}>{team}</div> */}
       <div>
         <Box alignItems="center">
-          {name}
-          <span style={{display: 'flex', fontSize: '0.4vw', font: 'caption', marginTop: '1%', marginLeft: 'auto'}}>
+          <div style={{padding: '1%', fontSize: '1vw'}}>{name}</div>
+          <span style={{display: 'flex', fontSize: '0.8vw', marginTop: '1%', marginLeft: 'auto'}}>
             <div style={{padding: '1%', margin: '1%'}}>{statusIndicator}</div>
-            <div style={{padding: '1%', margin: '1%'}}>{branch}</div>
-            <div style={{padding: '1%', margin: '1%'}}>{aheadBehind}</div>
+            <div style={{padding: '1%', margin: '1%'}}>{branchDiff}</div>
           </span>
         </Box>
       </div>
@@ -53,16 +52,18 @@ export const getWorkspaceOpenButton = (props: {
     }
 
     return (
-        <Tooltip placement="top" arrow title="Open">
-          <Button
-            variant="outlined"
-            color="primary"
-            // Calling getAccessToken instead of a plain signIn because we are going to get the correct scopes right away. No need to second request
-            onClick={() => openInNewTab(`${openUrl}`)}
-          >
-            Open
-          </Button>
-        </Tooltip>
+        <div>
+          <Tooltip placement="top" arrow title="Open">
+            <Button
+              variant="outlined"
+              color="primary"
+              // Calling getAccessToken instead of a plain signIn because we are going to get the correct scopes right away. No need to second request
+              onClick={() => openInNewTab(`${openUrl}`)}
+            >
+              Open
+            </Button>
+          </Tooltip>
+        </div>
     );
 }
 

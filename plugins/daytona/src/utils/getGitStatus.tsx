@@ -7,10 +7,11 @@ import React from "react";
  * @returns a React JSX element with Commit Status in the format ahead/behind
  */
 export const getGitStatus = (props: {
+    branch?: string;
     ahead?: number;
     behind?: number;
 }) => {
-  if(props.ahead === undefined || props.behind === undefined) return null;
+  if(props.branch === undefined || props.ahead === undefined || props.behind === undefined) return null;
   return (
     <>
       {getGitStatusView(props)}
@@ -27,13 +28,15 @@ export const getGitStatus = (props: {
 * @returns the value with Commit Status in the format ahead/behind
 */
 export function getGitStatusView({
+  branch,
   ahead,
   behind
 }: {
+  branch?: string;
   ahead?: number;
   behind?: number;
 }) {
-  if (ahead === undefined || behind === undefined) return null;
-  const answer = `${ahead}/${behind}`;
+  if (branch === undefined || ahead === undefined || behind === undefined) return null;
+  const answer = `(${branch} ${ahead}/${behind})`;
   return answer;
 }
