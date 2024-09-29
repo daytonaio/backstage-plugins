@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useApi } from "@backstage/core-plugin-api";
 import { Box, Button, Card, CardContent, CardHeader, Divider, ListItemText, Typography } from "@material-ui/core";
 import DaytonaIcon from "../../assets/DaytonaIcon";
-import { daytonaAuthApiRef } from "@daytonaio/daytona-web";
+import { daytonaAuthApiRef } from "../../definitions";
 import { isError } from '@backstage/errors';
 
 export const AuthCardComponent = () => {
@@ -14,7 +14,7 @@ export const AuthCardComponent = () => {
             await daytonaAuthApi.signIn();
         } catch (e) {
             setError(isError(e) ? e.message : 'An unspecified error occurred');
-        } 
+        }
     }
 
     return (
@@ -23,17 +23,17 @@ export const AuthCardComponent = () => {
             flexDirection: 'column',
             height: 'calc(100% - 10px)', // for pages without content header
             marginBottom: '10px',
-          }}>
-            <CardHeader 
+        }}>
+            <CardHeader
                 title={
                     <>
                         <Box display="flex" alignItems="center" marginBottom={2}>
-                            <DaytonaIcon/> 
-                            <Box mr={1} width={2}/>
+                            <DaytonaIcon />
+                            <Box mr={1} width={2} />
                             Daytona Workspaces
-                        </Box>  
+                        </Box>
                     </>
-                }/>
+                } />
             <Divider />
             <CardContent style={{ padding: 0, overflow: 'auto', display: 'block' }}>
                 <div style={{ display: 'block', textAlign: 'center', padding: '10%' }}>
@@ -43,16 +43,16 @@ export const AuthCardComponent = () => {
                             Link your Daytona account to create and manage workspaces.
                         </span>
                     </Typography>
-                    <div style={{padding: '3%', }}>
+                    <div style={{ padding: '3%', }}>
                         <Button variant="contained" color="primary" onClick={handleAuthenticate}>
-                                Authenticate
+                            Authenticate
                         </Button>
                         <ListItemText
                             primary={error && <Typography color="error">{error}</Typography>}
                         />
                     </div>
                 </div>
-                
+
             </CardContent>
         </Card>
     );
