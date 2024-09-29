@@ -15,5 +15,4 @@ yarn dev
 If you wish to add Daytona plugins to your Backstage instance. You'll need to install the below plugins. You can refer the individual plugin documentation for installation and configuration.
 
 1. [@daytonaio/backstage-plugin-auth-backend-module-daytona-provider](https://www.npmjs.com/package/@daytonaio/backstage-plugin-auth-backend-module-daytona-provider)
-2. [@daytonaio/daytona-web](https://www.npmjs.com/package/@daytonaio/daytona-web)
-3. [@daytonaio/backstage-plugin-daytona](https://www.npmjs.com/package/@daytonaio/backstage-plugin-daytona)
+2. [@daytonaio/backstage-plugin-daytona](https://www.npmjs.com/package/@daytonaio/backstage-plugin-daytona)
