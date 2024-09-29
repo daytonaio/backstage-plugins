@@ -2,6 +2,7 @@ import { OAuth2 } from "@backstage/core-app-api";
 import { ApiRef, BackstageIdentityApi, OpenIdConnectApi, ProfileInfoApi, SessionApi, 
     createApiFactory, createApiRef, discoveryApiRef, oauthRequestApiRef, configApiRef, 
     OAuthApi} from "@backstage/core-plugin-api";
+import { DaytonaIcon } from "../assets";
 
 /**
  * Provides authentication towards Daytona APIs.
@@ -31,7 +32,7 @@ factory: ({ discoveryApi, oauthRequestApi, configApi }) =>
         provider: {
             id: 'daytona',
             title: 'Daytona',
-            icon: () => null,
+            icon: DaytonaIcon,
         },
         environment: configApi.getOptionalString('auth.environment'),
         defaultScopes: ['openid', 'profile', 'email'],
