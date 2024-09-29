@@ -6,7 +6,7 @@ import {
   Content,
   HeaderLabel,
 } from '@backstage/core-components';
-import { WorkspaceListComponent } from '../WorkspaceListComponent';
+import { WorkspaceListCard } from '../WorkspaceListComponent';
 
 export const WorkspaceComponent = () => (
   <Page themeId="tool">
@@ -17,7 +17,7 @@ export const WorkspaceComponent = () => (
     <Content>
       <Grid container spacing={3} direction="column">
         <Grid item>
-          <WorkspaceListComponent />
+          <WorkspaceListCard />
         </Grid>
       </Grid>
     </Content>

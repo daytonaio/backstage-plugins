@@ -38,7 +38,7 @@ export const DaytonaOverviewContent = daytonaPlugin.provide(
     name: 'DaytonaOverviewContent',
     component: {
       lazy: () =>
-        import('./components/WorkspaceOverviewContent').then(m => m.WorkspaceOverviewContent),
+        import('./components/WorkspaceOverviewContent').then(m => m.WorkspaceOverviewCard),
     }
   })
 )

@@ -81,7 +81,7 @@ auth:
             - resolver: emailLocalPartMatchingUserEntityName
 
 daytona:
-  domain: daytona.adisinghal.com
+  domain: daytona.domain.com
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
