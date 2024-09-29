@@ -1,5 +1,24 @@
 # @daytonaio/backstage-plugin-daytona
 
+## 0.2.9
+
+### Patch Changes
+
+- Fix formatting in `OverviewCard` 
+  - Increase the font of the workspace name
+  - Reduces the font of the workspace details
+  - Adds a bracket around git details if the branch exists
+  - Aligns the `OpenButton` to the right for matching left and right margins
+- Update the login flow
+  - `Authenticate` button that triggers authentication only when clicked
+  - Removes automatic pop-up for authentication trigger
+  - Authentication changes are available at both `Menu` and `Overview` cards
+- Migrate `@daytonaio/daytona-web` contents in this package
+  - Update documentation for `daytonaSignInProvider` and `daytonaApiFactory` to use `backstage-plugin-daytona`
+  - Remove `daytona-web` related tasks from Github Actions `publish.yaml`
+  - Add `DaytonaIcon` for the login pop-up
+  - Update `yarn.lock` file for the latest package structure
+
 ## 0.2.8
 
 ### Patch Changes
