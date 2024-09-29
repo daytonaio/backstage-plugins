@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useApi, SessionState } from "@backstage/core-plugin-api";
 import { AuthCardComponent } from "../AuthCardComponent/AuthCardComponent";
-import { daytonaAuthApiRef } from "@adityasinghal26/daytona-web";
+import { daytonaAuthApiRef } from "@daytonaio/daytona-web";
 import { WorkspaceListComponent } from "./WorkspaceListComponent";
 
 export const WorkspaceListCard = () => {
