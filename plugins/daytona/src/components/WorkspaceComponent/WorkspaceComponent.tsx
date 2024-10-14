@@ -1,16 +1,13 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import {
-  Header,
-  Page,
   Content,
-  HeaderLabel,
   TabbedLayout,
 } from '@backstage/core-components';
 import { WorkspaceListCard } from '../WorkspaceListComponent';
 import { AdminCard } from '../AdminCard';
 
-export const WorkspaceComponentContent = () => {
+export const WorkspaceComponent = () => {
   const isAdmin = true
 
   const adminContent = (
@@ -48,13 +45,3 @@ export const WorkspaceComponentContent = () => {
     </>
   )
 }
-
-export const WorkspaceComponent = () => (
-  <Page themeId="tool">
-    <Header title="Welcome to Daytona!">
-      <HeaderLabel label="Owner" value="Daytona" />
-      <HeaderLabel label="Lifecycle" value="Alpha" />
-    </Header>
-    <WorkspaceComponentContent />
-  </Page>
-);
