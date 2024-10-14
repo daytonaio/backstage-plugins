@@ -3,6 +3,7 @@ import { Grid } from '@material-ui/core';
 import {
   Header,
   Page,
+  Content,
   HeaderLabel,
   TabbedLayout,
 } from '@backstage/core-components';
@@ -32,15 +33,13 @@ export const WorkspaceComponentContent = () => {
   );
 
   const nonAdminContent = (
-    <TabbedLayout>
-      <TabbedLayout.Route path='workspaces' title="Workspaces">
-          <Grid container spacing={3} direction="column">
-            <Grid item>
-              <WorkspaceListCard />
-            </Grid>
-          </Grid>
-      </TabbedLayout.Route>
-    </TabbedLayout>
+    <Content>
+      <Grid container spacing={3} direction="column">
+        <Grid item>
+          <WorkspaceListCard />
+        </Grid>
+      </Grid>
+    </Content>
   );
 
   return (
