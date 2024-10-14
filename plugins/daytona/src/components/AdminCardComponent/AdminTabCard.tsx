@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardHeader, CardContent, Divider, makeStyles, Theme } from '@material-ui/core';
 import { configApiRef, useApi } from "@backstage/core-plugin-api";
 
-type AdminMenuCardProps = {
+type AdminTabCardProps = {
 
     // The name of the card
     name: string;
@@ -31,7 +31,7 @@ const openInNewTab = (url: string): void => {
     if (newWindow) newWindow.opener = null
 }
 
-export const AdminMenuCard = ({name, desc, path}: AdminMenuCardProps) => {
+export const AdminTabCard = ({name, desc, path}: AdminTabCardProps) => {
     const classes = useStyles();
     const config = useApi(configApiRef);
     const daytonaHost = config.getString('daytona.domain');

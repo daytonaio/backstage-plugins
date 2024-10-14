@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Divider, Grid } from '@material-ui/core';
 import { Card, CardHeader, CardContent } from '@material-ui/core';
-import { AdminMenuCard } from './AdminMenuCard';
+import { AdminTabCard } from './AdminTabCard';
 import { DaytonaIcon } from '../../assets';
 
 export const AdminCardComponent = () => (
@@ -25,22 +25,22 @@ export const AdminCardComponent = () => (
         <CardContent >
             <Grid container spacing={3}>
                 <Grid item md={4}>
-                    <AdminMenuCard name="Users" desc="Manage Daytona Users" path='users'/>
+                    <AdminTabCard name="Users" desc="Manage Daytona Users" path='users'/>
                 </Grid>
                 <Grid item md={4}>
-                    <AdminMenuCard name="Teams" desc="Manage Daytona Users" path='teams'/>
+                    <AdminTabCard name="Teams" desc="Manage Daytona Users" path='teams'/>
                 </Grid>
                 <Grid item md={4}>
-                    <AdminMenuCard name="Quotas" desc="Set User Quotas" path='quotas'/>
+                    <AdminTabCard name="Quotas" desc="Set User Quotas" path='quotas'/>
                 </Grid>
                 <Grid item md={4}>
-                    <AdminMenuCard name="Workspace Classes" desc="Define Workspace Classes" path='workspace-classes'/>
+                    <AdminTabCard name="Workspace Classes" desc="Define Workspace Classes" path='workspace-classes'/>
                 </Grid>
                 <Grid item md={4}>
-                    <AdminMenuCard name="Identity Providers" desc="Add Identity or Git providers" path='identity-providers'/>
+                    <AdminTabCard name="Identity Providers" desc="Add Identity or Git providers" path='identity-providers'/>
                 </Grid>
                 <Grid item md={4}>
-                    <AdminMenuCard name="Settings" desc="Other Daytona Settings" path='settings'/>
+                    <AdminTabCard name="Settings" desc="Other Daytona Settings" path='settings'/>
                 </Grid>
             </Grid>
         </CardContent>
