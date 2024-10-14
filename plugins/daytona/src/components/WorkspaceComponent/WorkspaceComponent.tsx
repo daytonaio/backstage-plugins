@@ -8,7 +8,7 @@ import {
   TabbedLayout,
 } from '@backstage/core-components';
 import { WorkspaceListCard } from '../WorkspaceListComponent';
-import { AdminCardComponent } from '../AdminCardComponent';
+import { AdminCard } from '../AdminCard';
 
 export const WorkspaceComponentContent = () => {
   const isAdmin = true
@@ -25,7 +25,7 @@ export const WorkspaceComponentContent = () => {
       <TabbedLayout.Route path='admin' title="Admin">
           <Grid container spacing={3} direction="column">
             <Grid item>
-              <AdminCardComponent isOwner={false} />
+              <AdminCard />
             </Grid>
           </Grid>
       </TabbedLayout.Route>
