@@ -1,3 +1,4 @@
+export * from './useAccessToken';
 export * from './useGetAllCustomWorkspaces';
 export * from './useGetAllCustomWorkspacesInRepo';
 export * from './useGetCustomWorkspacesForTeam';

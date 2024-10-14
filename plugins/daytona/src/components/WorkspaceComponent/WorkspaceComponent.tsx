@@ -6,9 +6,11 @@ import {
 } from '@backstage/core-components';
 import { WorkspaceListCard } from '../WorkspaceListComponent';
 import { AdminCard } from '../AdminCard';
+import { useAccessToken } from '../../hooks';
 
 export const WorkspaceComponent = () => {
-  const isAdmin = true
+  const userApiRoles = useAccessToken().apiRoles;
+  const isAdmin = userApiRoles.includes('admin') || userApiRoles.includes('user-admin');
 
   const adminContent = (
     <TabbedLayout>

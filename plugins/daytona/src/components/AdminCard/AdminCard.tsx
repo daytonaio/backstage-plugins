@@ -1,11 +1,13 @@
 import React from "react";
 import { AdminCardComponent } from "./AdminCardComponent";
+import { useAccessToken } from "../../hooks";
 
 export const AdminCard = () => {
-
+    const userApiRoles = useAccessToken().apiRoles;
+    
     return (
         <>
-            <AdminCardComponent isOwner={true} />
+            <AdminCardComponent isOwner={userApiRoles.includes('owner') || userApiRoles.includes('admin')} />
         </>
     )
 }
