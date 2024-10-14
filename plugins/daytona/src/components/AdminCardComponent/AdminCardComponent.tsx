@@ -4,7 +4,15 @@ import { Card, CardHeader, CardContent } from '@material-ui/core';
 import { AdminTabCard } from './AdminTabCard';
 import { DaytonaIcon } from '../../assets';
 
-export const AdminCardComponent = () => (
+type AdminCardComponentProps = {
+
+    /**
+     * Whether the current user is an owner
+     */
+    isOwner: boolean;
+}
+
+export const AdminCardComponent = ({ isOwner }: AdminCardComponentProps) => (
     <Card style={{
         display: 'flex',
         flexDirection: 'column',
@@ -27,21 +35,25 @@ export const AdminCardComponent = () => (
                 <Grid item md={4}>
                     <AdminTabCard name="Users" desc="Manage Daytona Users" path='users'/>
                 </Grid>
-                <Grid item md={4}>
-                    <AdminTabCard name="Teams" desc="Manage Daytona Users" path='teams'/>
-                </Grid>
-                <Grid item md={4}>
-                    <AdminTabCard name="Quotas" desc="Set User Quotas" path='quotas'/>
-                </Grid>
-                <Grid item md={4}>
-                    <AdminTabCard name="Workspace Classes" desc="Define Workspace Classes" path='workspace-classes'/>
-                </Grid>
-                <Grid item md={4}>
-                    <AdminTabCard name="Identity Providers" desc="Add Identity or Git providers" path='identity-providers'/>
-                </Grid>
-                <Grid item md={4}>
-                    <AdminTabCard name="Settings" desc="Other Daytona Settings" path='settings'/>
-                </Grid>
+                {isOwner && (
+                    <>
+                        <Grid item md={4}>
+                            <AdminTabCard name="Teams" desc="Manage Daytona Teams" path='teams'/>
+                        </Grid>
+                        <Grid item md={4}>
+                            <AdminTabCard name="Quotas" desc="Set User Quotas" path='quotas'/>
+                        </Grid>
+                        <Grid item md={4}>
+                            <AdminTabCard name="Workspace Classes" desc="Define Workspace Classes" path='workspace-classes'/>
+                        </Grid>
+                        <Grid item md={4}>
+                            <AdminTabCard name="Identity Providers" desc="Add Identity or Git providers" path='identity-providers'/>
+                        </Grid>
+                        <Grid item md={4}>
+                            <AdminTabCard name="Settings" desc="Other Daytona Settings" path='settings'/>
+                        </Grid>
+                    </>
+                )}
             </Grid>
         </CardContent>
     </Card>

@@ -25,7 +25,7 @@ export const WorkspaceComponentContent = () => {
       <TabbedLayout.Route path='admin' title="Admin">
           <Grid container spacing={3} direction="column">
             <Grid item>
-              <AdminCardComponent />
+              <AdminCardComponent isOwner={false} />
             </Grid>
           </Grid>
       </TabbedLayout.Route>
