@@ -7,7 +7,9 @@ export const AdminCard = () => {
     
     return (
         <>
-            <AdminCardComponent isOwner={userApiRoles.includes('owner') || userApiRoles.includes('admin')} />
+            <AdminCardComponent 
+                isOwner={userApiRoles.includes('owner') || userApiRoles.includes('admin')} 
+                isUserAdmin={userApiRoles.includes('user-admin')} />
         </>
     )
 }

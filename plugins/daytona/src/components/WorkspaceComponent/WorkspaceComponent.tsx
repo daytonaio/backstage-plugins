@@ -10,7 +10,7 @@ import { useAccessToken } from '../../hooks';
 
 export const WorkspaceComponent = () => {
   const userApiRoles = useAccessToken().apiRoles;
-  const isAdmin = userApiRoles.includes('admin') || userApiRoles.includes('user-admin');
+  const isAdmin = userApiRoles.includes('owner') || userApiRoles.includes('admin') || userApiRoles.includes('user-admin');
 
   const adminContent = (
     <TabbedLayout>

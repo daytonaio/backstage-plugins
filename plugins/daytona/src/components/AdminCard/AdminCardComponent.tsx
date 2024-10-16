@@ -10,9 +10,14 @@ type AdminCardComponentProps = {
      * Whether the current user is an owner
      */
     isOwner: boolean;
+
+    /**
+     * Whether the current user is an user-admin
+     */
+    isUserAdmin: boolean;
 }
 
-export const AdminCardComponent = ({ isOwner }: AdminCardComponentProps) => (
+export const AdminCardComponent = ({ isOwner, isUserAdmin }: AdminCardComponentProps) => (
     <Card style={{
         display: 'flex',
         flexDirection: 'column',
@@ -32,25 +37,33 @@ export const AdminCardComponent = ({ isOwner }: AdminCardComponentProps) => (
             <Divider />
         <CardContent >
             <Grid container spacing={3}>
-                <Grid item md={4}>
-                    <AdminTabCard name="Users" desc="Manage Daytona Users" path='users'/>
-                </Grid>
+                {isUserAdmin && (
+                    <Grid item md={4}>
+                        <AdminTabCard name="Users" desc="Manage users" path='users'/>
+                    </Grid>
+                )}
                 {isOwner && (
                     <>
                         <Grid item md={4}>
-                            <AdminTabCard name="Teams" desc="Manage Daytona Teams" path='teams'/>
+                            <AdminTabCard name="Users" desc="Manage users and their roles" path='users'/>
                         </Grid>
                         <Grid item md={4}>
-                            <AdminTabCard name="Quotas" desc="Set User Quotas" path='quotas'/>
+                            <AdminTabCard name="Teams" desc="Manage teams and their applied quotas" path='teams'/>
                         </Grid>
                         <Grid item md={4}>
-                            <AdminTabCard name="Workspace Classes" desc="Define Workspace Classes" path='workspace-classes'/>
+                            <AdminTabCard name="Quotas" desc="Manage resource limits with quotas" path='quotas'/>
                         </Grid>
                         <Grid item md={4}>
-                            <AdminTabCard name="Identity Providers" desc="Add Identity or Git providers" path='identity-providers'/>
+                            <AdminTabCard name="Workspace Classes" desc="Manage workspace resources with workspace classes" path='workspace-classes'/>
                         </Grid>
                         <Grid item md={4}>
-                            <AdminTabCard name="Settings" desc="Other Daytona Settings" path='settings'/>
+                            <AdminTabCard name="Identity Providers" desc="Manage authentication providers for Daytona" path='identity-providers'/>
+                        </Grid>
+                        <Grid item md={4}>
+                            <AdminTabCard name="Settings" desc="Manage global settings in Daytona" path='settings'/>
+                        </Grid>
+                        <Grid item md={4}>
+                            <AdminTabCard name="License" desc="Manage your Daytona license" path='license'/>
                         </Grid>
                     </>
                 )}
