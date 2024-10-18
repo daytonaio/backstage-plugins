@@ -28,7 +28,7 @@ export const DaytonaPage = daytonaPlugin.provide(
   createRoutableExtension({
     name: 'DaytonaPage',
     component: () =>
-      import('./components/WorkspaceComponent').then(m => m.WorkspaceComponent),
+      import('./components/WorkspaceComponent').then(m => m.MenuComponent),
     mountPoint: rootRouteRef,
   }),
 );

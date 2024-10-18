@@ -1,5 +1,14 @@
 # @daytonaio/backstage-plugin-daytona
 
+## 0.2.10
+
+### Patch Changes
+
+- Create an `Admin` tab in `Daytona` Menu page
+  - Manage tab layout based on the user `api.roles` such as `owner`, `user-admin`
+  - Tab is only accessible if the user is `owner`, `user-admin` or `admin` (for older Daytona versions)
+  - In case, user is only `member`, then the user can only see `Recent Workspaces` as earlier
+
 ## 0.2.9
 
 ### Patch Changes

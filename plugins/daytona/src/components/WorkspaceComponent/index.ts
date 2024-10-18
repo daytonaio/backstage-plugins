@@ -1,1 +1,1 @@
-export { WorkspaceComponent } from './WorkspaceComponent';
+export { MenuComponent } from './MenuComponent';
